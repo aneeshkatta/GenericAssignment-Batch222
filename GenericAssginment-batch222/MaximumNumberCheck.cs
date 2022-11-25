@@ -6,47 +6,30 @@ using System.Threading.Tasks;
 
 namespace GenericAssignment_batch222
 {
-    class GenericMaximumNumberCheck<T> where T : IComparable
-    {
-        public T firstvalue, secondvalue, thirdvalue;
-        public GenericMaximumNumberCheck(T firstValue, T secondValue, T thirdValue)
+    class GenericMaximumCheck<T> where T : IComparable
+    {//constructor
+        public T[] value;
+        public GenericMaximumCheck(T[] value)
         {
-            this.firstvalue = firstvalue;
-            this.secondvalue = secondvalue;
-            this.thirdvalue = thirdvalue;
+            this.value = value;
+        }
+        //sort values in arrays
+        public T[] Sort(T[] values)
+        {
+            Array.Sort(values);
+            return values;
+        }
+        public T Maxvalue(params T[] values)
+        {
+            var sorted_values = Sort(values);
+            return sorted_values[^1];
+        }
+        public void PrintMaxValue()
+        {
+            var max = Maxvalue(this.value);
+            Console.WriteLine("Maximum value is :" + max);
 
         }
-        public static T FindMax(T firstValue, T secondValue, T thirdValue)
-        {
-            if (firstValue.CompareTo(secondValue) > 0 && firstValue.CompareTo(thirdValue) > 0 ||
-                firstValue.CompareTo(secondValue) >= 0 && firstValue.CompareTo(thirdValue) > 0 ||
-                firstValue.CompareTo(secondValue) > 0 && firstValue.CompareTo(thirdValue) >= 0)
-            {
-                Console.WriteLine($"{firstValue}  is greater in {firstValue}, {secondValue},{thirdValue} ");
-                
-            }
-            else if (secondValue.CompareTo(firstValue) > 0 && secondValue.CompareTo(thirdValue) > 0 ||
-                secondValue.CompareTo(firstValue) >= 0 && secondValue.CompareTo(thirdValue) > 0 ||
-                secondValue.CompareTo(firstValue) >= 0 && secondValue.CompareTo(thirdValue) >= 0)
-            {
-                Console.WriteLine($"{secondValue}  is greater in {firstValue}, {secondValue},{thirdValue} ");
-            }
-            else if (thirdValue.CompareTo(firstValue) > 0 && thirdValue.CompareTo(secondValue) > 0 ||
-                thirdValue.CompareTo(firstValue) >= 0 && thirdValue.CompareTo(secondValue) > 0 ||
-                thirdValue.CompareTo(firstValue) >= 0 && thirdValue.CompareTo(secondValue) >= 0)
-            {
-                Console.WriteLine($"{thirdValue}  is greater in {firstValue}, {secondValue},{thirdValue} ");
-            }
-            else
-                Console.WriteLine($"{firstValue}  is greater ");
-            return default;
-        }
-        public T TestMaxMethod()
-        {
-            T max = GenericMaximumNumberCheck<T>.FindMax(this.firstvalue, this.secondvalue, this.thirdvalue);
-            return max;
-        }
-
 
     }
 }
