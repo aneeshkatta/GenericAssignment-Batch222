@@ -12,9 +12,9 @@ namespace GenericAssginment_batch222
         public static void Main()
         {
             Console.WriteLine("Welcome to Generic's Maximum Number Check");
-            MaximumNumberCheck<int>.FindMax(20, 30, 40);
-            MaximumNumberCheck<double>.FindMax(50.99, 30.36, 70.99);
-            MaximumNumberCheck<string>.FindMax("Apple", "Peach", "Banana");
+            GenericMaximumNumberCheck<int>.FindMax(20, 30, 40);
+            GenericMaximumNumberCheck<double>.FindMax(50.99, 30.36, 70.99);
+            GenericMaximumNumberCheck<string>.FindMax("Apple", "Peach", "Banana");
             Console.ReadKey();
         }
     }
