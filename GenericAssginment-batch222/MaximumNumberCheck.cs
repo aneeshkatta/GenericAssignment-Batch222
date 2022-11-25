@@ -8,7 +8,7 @@ namespace GenericAssignment_batch222
 {
     internal class MaximumNumberCheck
     {
-        public static int MaximumIntegerNumber(int firstValue, int secondValue, int thirdValue)
+        public static double MaximumDoubleNumber(double firstValue, double secondValue, double thirdValue)
         {
             if (firstValue.CompareTo(secondValue) > 0 && firstValue.CompareTo(thirdValue) > 0 ||
                 firstValue.CompareTo(secondValue) >= 0 && firstValue.CompareTo(thirdValue) > 0 ||
@@ -22,26 +22,26 @@ namespace GenericAssignment_batch222
             {
                 return +secondValue;
             }
-            if (thirdValue.CompareTo(firstValue) > 0 && thirdValue.CompareTo(secondValue) > 0 ||
+            else if (thirdValue.CompareTo(firstValue) > 0 && thirdValue.CompareTo(secondValue) > 0 ||
                 thirdValue.CompareTo(firstValue) >= 0 && thirdValue.CompareTo(secondValue) > 0 ||
                 thirdValue.CompareTo(firstValue) >= 0 && thirdValue.CompareTo(secondValue) >= 0)
             {
                 return +thirdValue;
             }
-            throw new Exception("firstNumber,secondNumber and thirdNumber are same");
-
+            else
+                return firstValue;
         }
         public static void Main()
         {
             Console.WriteLine("Welcome to Generic's Maximum Number Check");
-            Console.WriteLine("Enter three integer values find the max Number");
+            Console.WriteLine("Enter three double values and find the max Number");
             Console.WriteLine("Enter firstValue");
-            int x = Convert.ToInt32(Console.ReadLine());
+            double x = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter secondValue");
-            int y = Convert.ToInt32(Console.ReadLine());
+            double y = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter thirdValue");
-            int z = Convert.ToInt32(Console.ReadLine());
-            int output = MaximumNumberCheck.MaximumIntegerNumber(x, y, z);
+            double z = Convert.ToDouble(Console.ReadLine());
+            double output = MaximumNumberCheck.MaximumDoubleNumber(x, y, z);
             Console.WriteLine(output + " is Maximum number");
             Console.ReadKey();
         }
